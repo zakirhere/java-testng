@@ -17,8 +17,8 @@ public class ClassLevelTagging {
 
     @BeforeClass
     public void resetCalc() {
-        ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource("*.properties").getFile());
+//        ClassLoader classLoader = getClass().getClassLoader();
+//        File file = new File(classLoader.getResource("*.properties").getFile());
 
         System.out.println("ClassLevelTagging BeforeMethod");
         System.out.println("HERE " + System.getProperty("expected.value"));

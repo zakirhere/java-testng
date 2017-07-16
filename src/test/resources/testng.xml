@@ -5,7 +5,7 @@
     <!--This will help us run multiple classes in parallel-->
     <test name="parallelClasses" parallel="classes" enabled="true">
         <classes>
-          <class name="test.slow.DelayedExecution"/>
+          <!--<class name="test.slow.DelayedExecution"/>-->
             <class name="test.misc.ClassLevelTagging"/>
         </classes>
     </test>

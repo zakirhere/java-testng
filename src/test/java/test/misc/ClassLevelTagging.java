@@ -1,7 +1,10 @@
 package test.misc;
 
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.io.File;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
@@ -12,9 +15,13 @@ import static org.fest.assertions.api.Assertions.assertThat;
 @Test
 public class ClassLevelTagging {
 
-    @BeforeMethod
+    @BeforeClass
     public void resetCalc() {
+        ClassLoader classLoader = getClass().getClassLoader();
+        File file = new File(classLoader.getResource("*.properties").getFile());
+
         System.out.println("ClassLevelTagging BeforeMethod");
+        System.out.println("HERE " + System.getProperty("expected.value"));
         assertThat(4).isEqualTo(4);
     }
 

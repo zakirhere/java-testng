@@ -2,8 +2,17 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
 
+    <test name="properties files loading" >
+        <classes>
+            <class name="test.misc.ClassLevelTagging">
+                <methods>
+                    <include name="testAdd01"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
     <!--This will help us run multiple classes in parallel-->
-    <test name="parallelClasses" parallel="classes" enabled="true">
+    <test name="parallelClasses" parallel="classes" enabled="false">
         <classes>
           <!--<class name="test.slow.DelayedExecution"/>-->
             <class name="test.misc.ClassLevelTagging"/>

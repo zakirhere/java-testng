@@ -37,7 +37,7 @@ dependencies {
     
 }
 
-test {
+task e2e(type: Test) {
     useTestNG {
         suites 'src/test/resources/testng.xml'
     }

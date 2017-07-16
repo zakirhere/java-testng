@@ -4,7 +4,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.io.File;
+import java.io.*;
+import java.util.Properties;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
@@ -16,12 +17,21 @@ import static org.fest.assertions.api.Assertions.assertThat;
 public class ClassLevelTagging {
 
     @BeforeClass
-    public void resetCalc() {
+    public void resetCalc() throws IOException {
 //        ClassLoader classLoader = getClass().getClassLoader();
 //        File file = new File(classLoader.getResource("*.properties").getFile());
 
+        Properties prop = new Properties();
+        try {
+            InputStream input = new FileInputStream("src/test/resources/testng.properties");
+            prop.load(input);
+            System.out.println("HERE " + prop.getProperty("expected.value"));
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
         System.out.println("ClassLevelTagging BeforeMethod");
-        System.out.println("HERE " + System.getProperty("expected.value"));
         assertThat(4).isEqualTo(4);
     }
 

@@ -25,7 +25,11 @@ public class ClassLevelTagging {
         try {
             InputStream input = new FileInputStream("src/test/resources/testng.properties");
             prop.load(input);
+            if(System.getProperty("expected.value") == "") {
+                prop.setProperty("expected.value", System.getProperty("expected.value"));
+            }
             System.out.println("HERE " + prop.getProperty("expected.value"));
+            System.out.println("HERE " + System.getProperty("expected.value"));
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

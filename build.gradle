@@ -41,4 +41,6 @@ task e2e(type: Test) {
     useTestNG {
         suites 'src/test/resources/testng.xml'
     }
+    systemProperty "etch.publish", System.getProperty("etch.publish")
+    systemProperty "expected.value", System.getProperty("expected.value")
 }
